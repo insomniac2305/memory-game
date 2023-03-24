@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import "@picocss/pico";
+import "./App.css"
 import Board from "./components/Board";
 
 function App() {
@@ -14,11 +15,23 @@ function App() {
   }, [score, bestScore]);
 
   return (
-    <div className="App">
-      Score: {score}
-      <br />
-      Best: {bestScore}
-      <Board increaseScore={increaseScore} resetScore={resetScore}/>
+    <div className="container-fluid">
+      <nav>
+        <ul>
+          <li>
+            <h2>Memory Game</h2>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <hgroup>
+              <h2>Score: {score}</h2>
+              <h2>Best: {bestScore}</h2>
+            </hgroup>
+          </li>
+        </ul>
+      </nav>
+      <Board increaseScore={increaseScore} resetScore={resetScore} />
     </div>
   );
 }
